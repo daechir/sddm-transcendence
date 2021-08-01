@@ -2,36 +2,36 @@
 Author: Daechir <br/>
 Author URL: https://github.com/daechir <br/>
 License: GNU GPL <br/>
-Modified Date: 08/13/20 <br/>
-Version: v1
+Modified Date: 08/01/21 <br/>
+Version: v1a
 
 
 ## Purpose
-Transcendence serves as a minimal SDDM theme adhering to the KISS principle.
-This theme was built and tested on vanilla Arch Linux only. However it should also work on many other Linux distros as-well.
-No screenshot is provided as I no longer use SDDM or any type of display manager.
-
+Transcendence serves as a minimal SDDM theme adhering to the KISS principle. <br/>
+This theme was built on Arch Linux and tested on Lubuntu 21.04 as of the listed modified date. <br/>
 
 ## Options
-Out of the box Transcendence supports four options:
+Out of the box Transcendence supports five options:
 + displayHeight=1920
 + displayWidth=1080
-+ displayFont="Roboto"
++ displayFont="Ubuntu"
++ displayFontSize=14
 + background=images/background.jpg
 
 For the best results and performance make sure to add your display dimensions. <br/>
-If you don't have Roboto installed you may install it in Arch Linux via "ttf-roboto." <br/>
 As always you may change the default options to your specifications in theme.conf.
 
 
 ## Installation
 Installing this theme is as simple as it gets. <br/>
 
-### Arch Linux:
+### Lubuntu 21.04:
+`curl -o sddm-transcendence.zip https://codeload.github.com/daechir/sddm-transcendence/zip/v1a` <br/>
+`unzip sddm-transcendence.zip` <br/>
+`mv sddm-transcendence-1a Transcendence` <br/>
 `sudo cp -R Transcendence /usr/share/sddm/themes/` <br/>
 `sudo chmod -R 755 /usr/share/sddm/themes/Transcendence/` <br/>
-`sudo sed -i "s/^Current=.*/Current=Transcendence/g" /usr/lib/sddm/sddm.conf.d/default.conf` <br/>
-
-If you aren't using vanilla Arch Linux you'll have to change the last line to wherever the SDDM default.conf is located in your distro. <br/>
-Some distro's may not even have this option specified thus you may have to create it instead.
+`echo -e "[Theme]\nCurrent=Transcendence" | sudo tee -a /etc/sddm.conf > /dev/null` <br/>
+  
+If you're missing curl install it with sudo apt install curl.
 

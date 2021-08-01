@@ -1,5 +1,5 @@
 /***************************************************************************
-* Copyright (c) 2020 Deachir <https://github.com/daechir>
+* Copyright (c) 2021 Deachir <https://github.com/daechir>
 *
 * Permission is hereby granted, free of charge, to any person
 * obtaining a copy of this software and associated documentation
@@ -43,20 +43,11 @@ Rectangle {
 			pw_entry.focus = true
 		}
 	}
-
-	FontLoader {
-		id: textFont; name: config.displayFont
-	}
-
+	
 	Background {
 		anchors.fill: parent
 		source: config.background
 		fillMode: Image.PreserveAspectCrop
-		onStatusChanged: {
-			if (status == Image.Error && source != config.defaultBackground) {
-				source = config.defaultBackground
-			}
-		}
 	}
 
 	Rectangle {
@@ -83,7 +74,9 @@ Rectangle {
 					width: parent.width * 0.33
 					anchors.verticalCenter: parent.verticalCenter
 					text: userModel.lastUser
-					font.pixelSize: 14
+					font.family: config.displayFont
+					font.bold: false
+					font.pixelSize: config.displayFontSize
 					color: Qt.rgba(0, 0, 0, 0.2)
 					borderColor: "transparent"
 					focusColor: Qt.rgba(0, 0, 0, 0.25)
@@ -96,7 +89,9 @@ Rectangle {
 					id: pw_entry
 					width: parent.width * 0.33
 					anchors.verticalCenter: parent.verticalCenter
-					font.pixelSize: 14
+					font.family: config.displayFont
+					font.bold: false
+					font.pixelSize: config.displayFontSize
 					color: Qt.rgba(0, 0, 0, 0.2)
 					borderColor: "transparent"
 					focusColor: Qt.rgba(0, 0, 0, 0.25)
@@ -117,8 +112,9 @@ Rectangle {
 					width: parent.width * 0.33
 					anchors.verticalCenter: parent.verticalCenter
 					text: textConstants.login
-					font.pixelSize: 14
+					font.family: config.displayFont
 					font.bold: false
+					font.pixelSize: config.displayFontSize
 					color: Qt.rgba(0, 0, 0, 0.2)
 					activeColor: Qt.rgba(0, 0, 0, 0.2)
 					pressedColor: Qt.rgba(0, 0, 0, 0.25)
@@ -142,7 +138,9 @@ Rectangle {
 			anchors.left: parent.left
 			anchors.leftMargin: 20
 			anchors.verticalCenter: parent.verticalCenter
-			font.pixelSize: 14
+			font.family: config.displayFont
+			font.bold: false
+			font.pixelSize: config.displayFontSize
 			color: Qt.rgba(0, 0, 0, 0.2)
 			dropDownColor: Qt.rgba(0, 0, 0, 0.2)
 			borderColor: "transparent"
@@ -160,8 +158,9 @@ Rectangle {
 			anchors.rightMargin: 10
 			anchors.verticalCenter: parent.verticalCenter
 			text: textConstants.reboot
-			font.pixelSize: 14
+			font.family: config.displayFont
 			font.bold: false
+			font.pixelSize: config.displayFontSize
 			color: Qt.rgba(0, 0, 0, 0.2)
 			pressedColor: Qt.rgba(0, 0, 0, 0.25)
 			activeColor: Qt.rgba(0, 0, 0, 0.2)
@@ -175,8 +174,9 @@ Rectangle {
 			anchors.rightMargin: 20
 			anchors.verticalCenter: parent.verticalCenter
 			text: textConstants.shutdown
-			font.pixelSize: 14
+			font.family: config.displayFont
 			font.bold: false
+			font.pixelSize: config.displayFontSize
 			color: Qt.rgba(0, 0, 0, 0.2)
 			pressedColor: Qt.rgba(0, 0, 0, 0.25)
 			activeColor: Qt.rgba(0, 0, 0, 0.2)
